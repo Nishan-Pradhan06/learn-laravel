@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('index');
@@ -18,3 +19,9 @@ Route::get('/nishan/{name}', function ($name) {
     // echo $name;
     return view('nishan', ['name' => $name]);
 });
+
+Route::get('user', [UserController::class, 'getUser']);
+Route::get('name/{name}', [UserController::class, 'getUserName']);
+Route::get('controller', [UserController::class, 'getController']);
+Route::get('users', [UserController::class, 'getPasword']);
+Route::get('admin', [UserController::class, 'adminLogin']);
