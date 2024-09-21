@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CardJobModelController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\StudentController;
@@ -44,3 +45,8 @@ Route::post('/save', [StudentController::class, 'store']);
 Route::get('/delete/{id}', [StudentController::class, 'destroy']);
 Route::get('/edit/{id}', [StudentController::class, 'edit']);
 Route::post('/update/{id}', [StudentController::class, 'update']);
+
+
+Route::get('/post-work', [CardJobModelController::class, 'index']);
+Route::post('/save-work', [CardJobModelController::class, 'store']);
+Route::get('/find-work', [CardJobModelController::class, 'show']);
