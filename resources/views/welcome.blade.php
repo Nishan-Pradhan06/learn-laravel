@@ -2,6 +2,14 @@
 @section('title','Home')
 @section('content')
 <form action="/save" method="post" class="p-4">
+    @if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> Student Insert successfully.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
     <!-- generate unique token -->
     @csrf
     <h1>Students Details</h1>

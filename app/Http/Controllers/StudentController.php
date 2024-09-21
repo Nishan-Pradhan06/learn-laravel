@@ -34,7 +34,8 @@ class StudentController extends Controller
         $student->email = $request->email;
         $student->contact = $request->contact;
         $student->save();
-        return back(); //return to same back form whre you was previous
+        return redirect()->back()->with('success', 'Student Insert successfully');
+        // return back(); //return to same back form whre you was previous
     }
 
     /**

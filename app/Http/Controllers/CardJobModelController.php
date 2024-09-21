@@ -30,13 +30,14 @@ class CardJobModelController extends Controller
             $job = new CardJobModel();
             $job->title = $request->title;
             $job->des = $request->des;
+            $job->duration = $request->duration;
             $job->budget = $request->budget;
             $job->req = $request->req;
             $job->save();
 
             return redirect()->back()->with('success', 'Job posted successfully');
         } catch (\Exception $e) {
-            // Flash error message
+            // dd($e->getMessage()); // This will show the actual error message
             return redirect()->back()->with('error', 'Failed to post job');
         }
     }

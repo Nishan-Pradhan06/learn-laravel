@@ -29,12 +29,13 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="desc">Description</label>
-        <textarea class="form-control" id="desc" rows="3" placeholder="Enter job description" name="desc"></textarea>
+        <label for="des">Description</label>
+        <textarea class="form-control" id="desc" rows="3" placeholder="Enter job description" name="des"></textarea>
     </div>
+
     <div class="form-group">
-        <label for="Duration">Title</label>
-        <input type="date" class="form-control" id="duration" placeholder="Duration" name="duration">
+        <label for="duration">Duration</label>
+        <input type="date" class="form-control" id="duration" placeholder="duration" name="duration">
     </div>
     <div class="form-group">
         <label for="budget">Budget</label>
