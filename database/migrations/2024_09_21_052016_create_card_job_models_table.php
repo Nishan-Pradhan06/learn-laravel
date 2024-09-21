@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('card_job_models', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('des');
+            $table->text('des'); //for long desdata
             $table->string('budget');
             $table->string('duration');
             $table->string('req');

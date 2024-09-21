@@ -37,7 +37,7 @@ class CardJobModelController extends Controller
 
             return redirect()->back()->with('success', 'Job posted successfully');
         } catch (\Exception $e) {
-            // dd($e->getMessage()); // This will show the actual error message
+            dd($e->getMessage()); // This will show the actual error message
             return redirect()->back()->with('error', 'Failed to post job');
         }
     }
@@ -47,7 +47,8 @@ class CardJobModelController extends Controller
      */
     public function show()
     {
-        return view('job.find-work');
+        $jobs = CardJobModel::all();
+        return view('job.find-work', compact('jobs'));
     }
 
     /**
