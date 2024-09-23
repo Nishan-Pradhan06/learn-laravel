@@ -7,7 +7,7 @@
     @foreach($jobs as $job)
     <div class="card mb-4">
         <div class="card-header">
-            <p style="font-size: 10px;">Posted {{ \Carbon\Carbon::parse($job->created_at)->format('H') }} hours ago</p>
+            <p style="font-size: 10px;">Posted {{ \Carbon\Carbon::parse($job->created_at)->diffForHumans() }}</p>
             <h5>{{$job->title}}</h5>
         </div>
         <div class="card-body">
