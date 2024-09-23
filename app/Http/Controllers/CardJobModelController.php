@@ -37,7 +37,7 @@ class CardJobModelController extends Controller
 
             return redirect()->back()->with('success', 'Job posted successfully');
         } catch (\Exception $e) {
-            dd($e->getMessage()); // This will show the actual error message
+            // dd($e->getMessage()); // This will show the actual error message
             return redirect()->back()->with('error', 'Failed to post job');
         }
     }
@@ -47,31 +47,60 @@ class CardJobModelController extends Controller
      */
     public function show()
     {
-        $jobs = CardJobModel::all();
+        // $jobs = CardJobModel::all();
+        $jobs = CardJobModel::OrderBY('created_at', 'desc')->get();
         return view('job.find-work', compact('jobs'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CardJobModel $cardJobModel)
+    public function edit($id)
     {
-        //
+        $job = CardJobModel::find($id);
+        return view('job.edit', compact('job'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CardJobModel $cardJobModel)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            $job = CardJobModel::find($id);
+            $job->title = $request->title;
+            $job->des = $request->des;
+            $job->duration = $request->duration;
+            $job->budget = $request->budget;
+            $job->req = $request->req;
+            $job->update();
+            return redirect()->back()->with('success', 'Job updated successfully');
+        } catch (\Exception $e) {
+            // dd($e->getMessage()); // This will show the actual error message
+            return redirect()->back()->with('error', 'Failed to edit job post.');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CardJobModel $cardJobModel)
+    public function destroy($id)
     {
-        //
+        try {
+            $job = CardJobModel::find($id);
+
+            if ($job) {
+                // If the job is found, delete it
+                $job->delete();
+                return view('welcome');
+            } else {
+                // If no job is found with the given id, return with an error message
+                return redirect()->back()->with('error', 'Job post not found!');
+            }
+        } catch (\Exception $e) {
+            // Log the actual error message if needed
+            // dd($e->getMessage());
+            return redirect()->back()->with('error', 'Failed to delete job post!');
+        }
     }
 }

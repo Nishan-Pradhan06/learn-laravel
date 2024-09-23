@@ -46,7 +46,10 @@ Route::get('/delete/{id}', [StudentController::class, 'destroy']);
 Route::get('/edit/{id}', [StudentController::class, 'edit']);
 Route::post('/update/{id}', [StudentController::class, 'update']);
 
-
+//
 Route::get('/post-work', [CardJobModelController::class, 'index']);
 Route::post('/save-work', [CardJobModelController::class, 'store']);
 Route::get('/find-work', [CardJobModelController::class, 'show']);
+Route::get('/edit-work/{id}', [CardJobModelController::class, 'edit']);
+Route::post('/update-work/{id}', [CardJobModelController::class, 'update']);
+Route::get('/delete/{id}', [CardJobModelController::class, 'destroy']);
