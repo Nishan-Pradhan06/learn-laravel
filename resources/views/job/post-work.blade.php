@@ -30,7 +30,7 @@
     </div>
     <div class="form-group">
         <label for="des">Description</label>
-        <textarea class="form-control" id="desc" rows="3" placeholder="Enter job description" name="des"></textarea>
+        <textarea class="form-control" id="editor" rows="3" placeholder="Enter job description" name="des"></textarea>
     </div>
 
     <div class="form-group">
@@ -48,4 +48,19 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('editor', {
+        toolbar: [{
+                name: 'basicstyles',
+                items: ['Bold', 'Italic']
+            },
+            {
+                name: 'paragraph',
+                items: ['NumberedList', 'BulletedList']
+            },
+        ],
+        height: 300
+    });
+</script>
 @endsection

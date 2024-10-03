@@ -11,7 +11,7 @@
             <h5>{{$job->title}}</h5>
         </div>
         <div class="card-body">
-            <p class="card-text">{{$job->des}}</p>
+            <p class="card-text">{!! str_replace(['{', '}'], '', $job->des) !!}</p>
             <p class="card-text">Duration: {{$job->duration}}</p>
             <p class="card-text">Budget: Rs. {{$job->budget}}</p>
             <p class="card-text">Tech Stack: {{$job->req}}</p>
