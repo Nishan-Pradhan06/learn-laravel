@@ -12,7 +12,7 @@ class CardJobModelController extends Controller
      */
     public function index()
     {
-        return view('job.post-work');
+        return view('client.post-work');
     }
 
     /**
@@ -49,7 +49,7 @@ class CardJobModelController extends Controller
     {
         // $jobs = CardJobModel::all();
         $jobs = CardJobModel::OrderBY('created_at', 'desc')->get();
-        return view('job.find-work', compact('jobs'));
+        return view('freelancer.find-work', compact('jobs'));
     }
 
     /**
@@ -58,7 +58,7 @@ class CardJobModelController extends Controller
     public function edit($id)
     {
         $job = CardJobModel::find($id);
-        return view('job.edit', compact('job'));
+        return view('client.edit', compact('job'));
     }
 
     /**

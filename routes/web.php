@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminContoller;
 use App\Http\Controllers\CardJobModelController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\PostController;
@@ -40,6 +41,8 @@ use App\Http\Controllers\UserController;
 Route::get('/', [FrontendController::class, 'index']);
 Route::get('/view', [FrontendController::class, 'viewStudent']);
 Route::get('/about', [FrontendController::class, 'about']);
+
+Route::get('/client/dashboard/', [AdminContoller::class, 'admin']);
 
 Route::post('/save', [StudentController::class, 'store']);
 Route::get('/delete/{id}', [StudentController::class, 'destroy']);
