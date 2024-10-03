@@ -49,7 +49,7 @@ class CardJobModelController extends Controller
     {
         // $jobs = CardJobModel::all();
         $jobs = CardJobModel::OrderBY('created_at', 'desc')->get();
-        return view('freelancer.find-work', compact('jobs'));
+        return view('job.find-work', compact('jobs'));
     }
 
     /**
@@ -58,8 +58,12 @@ class CardJobModelController extends Controller
     public function edit($id)
     {
         $job = CardJobModel::find($id);
+        if (!$job) {
+            return redirect()->back()->with('error', 'Job not found.');
+        }
         return view('client.edit', compact('job'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -92,7 +96,7 @@ class CardJobModelController extends Controller
             if ($job) {
                 // If the job is found, delete it
                 $job->delete();
-                return view('welcome');
+                return view('client.all-jobs');
             } else {
                 // If no job is found with the given id, return with an error message
                 return redirect()->back()->with('error', 'Job post not found!');

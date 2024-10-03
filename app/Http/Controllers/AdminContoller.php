@@ -10,7 +10,18 @@ class AdminContoller extends Controller
     //
    public function admin()
     {
-        $jobs = CardJobModel::OrderBy('created_at','desc')->get();
-        return view('client.dashboard',compact('jobs'));
+        return view('client.dashboard');
+       
+    }
+
+    public function allJobs()
+    {
+        $jobs = CardJobModel::OrderBy('created_at', 'desc')->get();
+        return view('client.all-jobs', compact('jobs'));
+    }
+
+    public function allContracts()
+    {
+        
     }
 }

@@ -43,6 +43,7 @@ Route::get('/view', [FrontendController::class, 'viewStudent']);
 Route::get('/about', [FrontendController::class, 'about']);
 
 Route::get('/client/dashboard/', [AdminContoller::class, 'admin']);
+Route::get('/all-jobs',[AdminContoller::class,'allJobs']);
 
 Route::post('/save', [StudentController::class, 'store']);
 Route::get('/delete/{id}', [StudentController::class, 'destroy']);
