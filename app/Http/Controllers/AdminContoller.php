@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\CardJobModel;
-use Illuminate\Http\Request;
 
 class AdminContoller extends Controller
 {
     //
    public function admin()
     {
-        return view('client.dashboard');
+        $totalJobs = CardJobModel::count();
+        return view('client.dashboard',compact('totalJobs'));
        
     }
 
