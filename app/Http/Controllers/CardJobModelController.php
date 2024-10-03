@@ -49,7 +49,7 @@ class CardJobModelController extends Controller
     {
         // $jobs = CardJobModel::all();
         $jobs = CardJobModel::OrderBY('created_at', 'desc')->get();
-        return view('job.find-work', compact('jobs'));
+        return view('freelancer.find-work', compact('jobs'));
     }
 
     /**
