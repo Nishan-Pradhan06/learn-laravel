@@ -21,7 +21,7 @@
                 <p class="card-text">Duration: {{$job->duration}}</p>
                 <p class="card-text">Budget: Rs. {{$job->budget}}</p>
                 <p class="card-text">Tech Stack: {{$job->req}}</p>
-                <a href="" class="btn btn-primary">Apply</a>
+                <a href="/proposal" class="btn btn-primary">Apply</a>
             </div>
         </div>
         @endforeach

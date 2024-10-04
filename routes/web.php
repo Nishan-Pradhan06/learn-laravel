@@ -4,10 +4,12 @@ use App\Http\Controllers\AdminContoller;
 use App\Http\Controllers\CardJobModelController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProposalController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Models\Proposal;
 
 // Route::get('/index', function () {
 //     return view('index');
@@ -43,10 +45,11 @@ Route::get('/view', [FrontendController::class, 'viewStudent']);
 Route::get('/about', [FrontendController::class, 'about']);
 
 Route::get('/client/dashboard/', [AdminContoller::class, 'admin']);
-Route::get('/all-jobs',[AdminContoller::class,'allJobs']);
+Route::get('/all-jobs', [AdminContoller::class, 'allJobs']);
 
 //freelancer
-Route::get('/find-work',[CardJobModelController::class,'show']);
+Route::get('/find-work', [CardJobModelController::class, 'show']);
+Route::get('/proposal', [ProposalController::class, 'index']);
 
 Route::post('/save', [StudentController::class, 'store']);
 Route::get('/delete/{id}', [StudentController::class, 'destroy']);
