@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Proposal;
+use Exception;
 use Illuminate\Http\Request;
 
 class ProposalController extends Controller
@@ -28,7 +29,15 @@ class ProposalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $proposal = new Proposal();
+            $proposal->proposal = $request->proposal;
+            $proposal->save();
+
+            return redirect()->back()->with('success', 'Proposal Sent Sucessfully!');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Failed to sent proposal!');
+        }
     }
 
     /**
@@ -36,15 +45,22 @@ class ProposalController extends Controller
      */
     public function show(Proposal $proposal)
     {
-        //
+        if (!$proposal) {
+            $proposal = Proposal::all();
+            return view('proposal.show');
+        }
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Proposal $proposal)
+    public function edit($id)
     {
-        //
+        $proposal = Proposal::find($id);
+        if (!$proposal) {
+            return redirect()->back()->with('error', 'No any Proposal');
+        }
+        return view('proposal.edit', compact('proposal'));
     }
 
     /**
