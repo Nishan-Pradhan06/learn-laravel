@@ -49,7 +49,10 @@ Route::get('/all-jobs', [AdminContoller::class, 'allJobs']);
 
 //freelancer
 Route::get('/find-work', [CardJobModelController::class, 'show']);
+
+
 Route::get('/proposal', [ProposalController::class, 'index']);
+Route::post('/save-proposal', [ProposalController::class, 'store']);
 
 Route::post('/save', [StudentController::class, 'store']);
 Route::get('/delete/{id}', [StudentController::class, 'destroy']);

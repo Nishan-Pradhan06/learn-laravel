@@ -8,7 +8,7 @@
 </style>
 <div class="container">
     <h1>Proposal</h1>
-    <form class="p-4 form-div" method="post" action="/save-work">
+    <form class="p-4 form-div" method="post" action="/save-proposal">
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Success!</strong> Job posted successfully.
@@ -30,8 +30,8 @@
         @csrf
 
         <div class="form-group">
-            <label for="des">Description</label>
-            <textarea class="form-control" id="editor" rows="3" placeholder="Enter job description" name="des"></textarea>
+            <label for="proposal">Proposal</label>
+            <textarea class="form-control" id="editor" rows="3" placeholder="write a proposal" name="proposal"></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
