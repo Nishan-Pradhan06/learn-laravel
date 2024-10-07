@@ -6,28 +6,59 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    function getUser()
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-        return "Nishan Pradhan";
+        //
     }
 
-    function getPasword()
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        return "password";
-    }
-    function getUserName($name)
-    {
-        echo "Hello this is" . $name;
-        return view('getuser', ['name' => $name]);
+        
     }
 
-    function getController()
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
-        return view('controller');
+        
     }
 
-    function adminLogin()
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-        return view('admin.login');
+        
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }

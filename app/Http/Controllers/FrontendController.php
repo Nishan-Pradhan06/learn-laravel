@@ -9,7 +9,7 @@ class FrontendController extends Controller
 {
     function index()
     {
-        return view('welcome');
+        return view('auth.login');
     }
     function about()
     {
